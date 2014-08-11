@@ -34,6 +34,7 @@ run("wget https://selenium-release.storage.googleapis.com/2.41/selenium-server-s
 if(!file_exists('artifacts')) mkdir('artifacts');
 run("java -jar selenium-server-standalone-2.41.0.jar > artifacts/selenium.log 2>&1 &");
 sleep(5);
+run("xdpyinfo -display :99 2>&1");
 
 // Write templated behat configuration
 $behatTemplate = file_get_contents(dirname(__FILE__).'/behat.tmpl.yml');
